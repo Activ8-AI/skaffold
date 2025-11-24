@@ -1,0 +1,10 @@
+import sqlite3
+conn = sqlite3.connect("custody/ledger.db")
+cur = conn.cursor()
+cur.execute("SELECT COUNT(*) FROM ledger")
+print("Ledger entries:", cur.fetchone()[0])
+cur.execute("SELECT DISTINCT seal_version FROM ledger")
+print("Seal versions:", [r[0] for r in cur.fetchall()])
+cur.execute("SELECT DISTINCT environment FROM ledger")
+print("Environments:", [r[0] for r in cur.fetchall()])
+conn.close()

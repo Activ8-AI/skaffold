@@ -1,0 +1,8 @@
+environment: dev
+seal_version: MVP_v1
+telemetry_interval: 60
+autonomy_enabled: true
+governance_thresholds:
+  drift_max: 10
+  heartbeat_interval: 30
+  incident_freeze: true
