@@ -1,0 +1,17 @@
+policies:
+  relay:
+    - id: "cfms-routing"
+      description: "Route persona and role requests through CFMS stacks only."
+      enforcement: "routing.persona + routing.role must match inbound request"
+  executor:
+    - id: "json-normalization"
+      description: "Every agent output is saved as JSON with normalization metadata."
+      enforcement: "executor serializes outputs/* files before returning"
+  logger:
+    - id: "traceability"
+      description: "Capture environment, git, and stack information for each run."
+      enforcement: "logger writes audit.json per run"
+  digest:
+    - id: "weekly-summary"
+      description: "Produce weekly digest rollups from PreservationVault runs."
+      enforcement: "codex_digest_report aggregates the latest 7 days by default"

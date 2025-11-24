@@ -1,0 +1,15 @@
+name: Codex Runtime
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+jobs:
+  run-codex:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r meta_mega_codex/requirements.txt
+      - run: meta_mega_codex/run_and_log.sh meta_mega_codex/stacks/kim_watson_stack.yaml kim advisor
+      - run: cd meta_mega_codex/PreservationVault && git push
