@@ -1,0 +1,8 @@
+seal_version: MVP_v1
+environment: dev
+custodian: CUST001
+checks:
+  - ledger_integrity: true
+  - drift_threshold: "< 10"
+  - autonomy_running: true
+  - governance_enforced: true
